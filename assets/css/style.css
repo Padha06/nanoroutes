@@ -244,16 +244,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .vision-lede{font-size:clamp(1.02rem,1.6vw,1.42rem);line-height:1.5;letter-spacing:-.01em;max-width:46ch}
 .triad{margin-top:clamp(3rem,6vw,5rem);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:center}
 .triad-svg{width:100%;max-width:600px;height:auto}
-.triad-rings circle{stroke:var(--ink);stroke-width:1.4;fill:none;opacity:.3;transition:opacity .5s var(--ease),stroke-width .5s var(--ease)}
+.triad-rings circle{stroke:var(--ink);stroke-width:1.4;fill:none;opacity:.22;transition:opacity .7s var(--ease),stroke-width .7s var(--ease),transform .7s var(--ease);transform-origin:center;transform-box:fill-box}
+.triad-rings circle.active-ring{opacity:.85;stroke-width:2}
 .triad-icons{stroke:var(--ink);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .triad-icons rect{fill:none}
-.triad-icon{transition:opacity .5s var(--ease);opacity:.45}
-.triad-icon.active{opacity:1}
+.triad-icon{transition:opacity .7s var(--ease),transform .7s var(--ease);opacity:.3;transform-origin:center;transform-box:fill-box;transform:scale(.92)}
+.triad-icon.active{opacity:1;transform:scale(1)}
 .triad-labels{display:flex;flex-direction:column}
-.triad-label{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding:1.2rem 0;background:none;border-left:none;border-right:none;border-bottom:none;cursor:pointer;text-align:left;transition:padding-left .4s var(--ease)}
+.triad-label{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding:1.2rem 0;background:none;border-left:none;border-right:none;border-bottom:none;cursor:pointer;text-align:left;transition:padding-left .5s var(--ease),background .4s var(--ease)}
 .triad-label:last-child{border-bottom:1px solid var(--line)}
-.triad-label span{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
-.triad-label .arrow{opacity:0;transform:translateX(-8px);transition:opacity .4s,transform .4s}
+.triad-label span{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;transition:color .4s var(--ease)}
+.triad-label .arrow{opacity:0;transform:translateX(-8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .triad-label:hover,.triad-label.active{padding-left:.9rem}
 .triad-label:hover .arrow,.triad-label.active .arrow{opacity:1;transform:none}
 
@@ -323,9 +324,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .sec-head.split{grid-template-columns:1fr}
   .hero-cols{grid-template-columns:1fr}
   .nis-pipe{grid-template-columns:1fr}
-  .nis-pipe-sticky{position:static;top:auto;margin-bottom:2.5rem}
-  .nis-diagram{max-width:340px}
-  .nis-step{min-height:0;opacity:1;padding:1.6rem 0}
+  .nis-pipe-sticky{position:sticky;top:70px;z-index:5;margin-bottom:0;background:var(--paper);padding-bottom:1rem}
+  .nis-diagram{max-width:280px;margin:0 auto}
+  .nis-step{min-height:0;padding:1.6rem 0}
   .triad{grid-template-columns:1fr}
   .triad-svg{max-width:440px}
   .contact-wrap{grid-template-columns:1fr}
@@ -340,12 +341,37 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .flow{flex-direction:column;gap:0}
   .flow-step{padding:0 0 1.6rem;border-bottom:1px solid var(--line-soft)}
   .flow-arrow{display:none}
-  .pin{height:auto!important}
-  .pin-sticky{position:static;height:auto;overflow:visible;gap:2rem;padding-top:0}
-  .pin-track{flex-direction:column;transform:none!important;padding:0 var(--pad-x)}
-  .rcard{flex:none;width:100%;min-height:0}
-  .pin-end{flex:none;width:100%;padding:0}
+
+  /* ---- NIS: overlapping sticky cards on mobile ---- */
+  .nis-pipe{grid-template-columns:1fr;position:relative}
+  .nis-pipe-visual{position:sticky;top:60px;z-index:6;background:var(--paper);padding-bottom:.8rem;margin-bottom:0}
+  .nis-pipe-sticky{position:static;top:auto}
+  .nis-diagram{max-width:220px;margin:0 auto}
+  .nis-pipe-steps{position:relative;padding-bottom:2rem}
+  .nis-step{position:sticky;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.4rem;margin-bottom:-1.6rem;box-shadow:0 2px 20px rgba(10,10,10,.06);min-height:0;opacity:1;transition:transform .5s var(--ease),box-shadow .4s var(--ease)}
+  .nis-step:nth-child(1){top:260px;z-index:10}
+  .nis-step:nth-child(2){top:274px;z-index:11}
+  .nis-step:nth-child(3){top:288px;z-index:12}
+  .nis-step:nth-child(4){top:302px;z-index:13;margin-bottom:0}
+  .nis-step.active{box-shadow:0 4px 28px rgba(10,10,10,.12)}
+  .nis-step:last-child{border-bottom:1px solid var(--line)}
+  .nis-idx{margin-bottom:.6rem}
+  .nis-step h3{font-size:clamp(1.3rem,5vw,1.6rem);margin-bottom:.5rem}
+  .nis-step p{font-size:.92rem}
+
+  /* ---- Research: overlapping sticky cards on mobile ---- */
+  .pin{height:auto!important;position:relative}
+  .pin-sticky{position:static;height:auto;overflow:visible;gap:1rem;padding-top:var(--sec-y)}
+  .pin-track{flex-direction:column;transform:none!important;padding:0 var(--pad-x);position:relative;padding-bottom:2rem}
+  .rcard{flex:none;width:100%;min-height:0;position:sticky;border-radius:12px;margin-bottom:-2rem;box-shadow:0 2px 20px rgba(10,10,10,.06);transition:transform .5s var(--ease),box-shadow .4s var(--ease)}
+  .rcard:nth-child(1){top:80px;z-index:10}
+  .rcard:nth-child(2){top:96px;z-index:11}
+  .rcard:nth-child(3){top:112px;z-index:12}
+  .rcard:nth-child(4){top:128px;z-index:13;margin-bottom:0}
+  .rcard:hover{box-shadow:0 4px 28px rgba(10,10,10,.12)}
+  .pin-end{flex:none;width:100%;padding:2.5rem 0 0}
   .pin-progress{display:none}
+
   .footer-wrap{grid-template-columns:1fr;gap:2.5rem}
   .footer-meta{align-items:flex-start;text-align:left}
   .menu-box{font-size:.8rem;padding:.7rem 1rem}

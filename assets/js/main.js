@@ -154,14 +154,27 @@
   var nisStages = $$('.nd-stage');
   var nisLabel = $('#nisPipeLabel');
   var nisNames = ['Capture', 'Interpret', 'Explain', 'Act'];
+  var isMobile = function () { return window.innerWidth <= 900; };
+
   function updateNis() {
     if (!nisSteps.length) return;
     var vh = window.innerHeight, best = 0, bestD = Infinity;
-    for (var i = 0; i < nisSteps.length; i++) {
-      var r = nisSteps[i].getBoundingClientRect();
-      var d = Math.abs((r.top + r.height / 2) - vh / 2);
-      if (d < bestD) { bestD = d; best = i; }
+
+    if (isMobile()) {
+      /* On mobile with sticky cards, detect which card is currently "stuck" */
+      for (var i = nisSteps.length - 1; i >= 0; i--) {
+        var r = nisSteps[i].getBoundingClientRect();
+        /* A card is "stuck" when its top is near its designated sticky position */
+        if (r.top <= 310) { best = i; break; }
+      }
+    } else {
+      for (var j = 0; j < nisSteps.length; j++) {
+        var rr = nisSteps[j].getBoundingClientRect();
+        var d = Math.abs((rr.top + rr.height / 2) - vh / 2);
+        if (d < bestD) { bestD = d; best = j; }
+      }
     }
+
     nisSteps.forEach(function (s, i) { s.classList.toggle('active', i === best); });
     nisStages.forEach(function (g, i) { g.classList.toggle('active', i === best); });
     if (nisLabel) scrambleTo(nisLabel, nisNames[best], 'nis');
@@ -271,18 +284,50 @@
     var tRings = $$('.triad-rings circle', triad);
     var tLabels = $$('.triad-label', triad);
     var order = { neuro: 0, ai: 1, chip: 2 };
+    var triadKeys = ['neuro', 'ai', 'chip'];
+    var triadAutoTimer = null;
+    var triadCurrent = 0;
+
     function setTriad(key) {
       var idx = order[key];
+      triadCurrent = idx;
       tIcons.forEach(function (g, i) { g.classList.toggle('active', i === idx); });
-      tRings.forEach(function (c, i) { c.style.opacity = i === idx ? '.85' : '.22'; });
+      tRings.forEach(function (c, i) {
+        c.classList.toggle('active-ring', i === idx);
+        c.style.opacity = i === idx ? '.85' : '.22';
+      });
       tLabels.forEach(function (l) { l.classList.toggle('active', l.getAttribute('data-for') === key); });
     }
+
     tLabels.forEach(function (l) {
       var key = l.getAttribute('data-for');
-      l.addEventListener('mouseenter', function () { setTriad(key); });
-      l.addEventListener('focus', function () { setTriad(key); });
+      l.addEventListener('mouseenter', function () { stopTriadAuto(); setTriad(key); });
+      l.addEventListener('focus', function () { stopTriadAuto(); setTriad(key); });
       l.addEventListener('click', function () { setTriad(key); });
     });
+
+    /* auto-cycle for smoother mobile experience */
+    function startTriadAuto() {
+      if (triadAutoTimer) return;
+      triadAutoTimer = setInterval(function () {
+        triadCurrent = (triadCurrent + 1) % 3;
+        setTriad(triadKeys[triadCurrent]);
+      }, 2500);
+    }
+    function stopTriadAuto() {
+      if (triadAutoTimer) { clearInterval(triadAutoTimer); triadAutoTimer = null; }
+    }
+
+    /* Start auto-cycle when triad enters viewport */
+    if ('IntersectionObserver' in window && !reduce) {
+      var triadObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { setTriad('neuro'); startTriadAuto(); }
+          else { stopTriadAuto(); }
+        });
+      }, { threshold: 0.15 });
+      triadObs.observe(triad);
+    }
   }
 
   /* ---------- cursor ---------- */
