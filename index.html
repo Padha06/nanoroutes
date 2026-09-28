@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nanoroutes — Neuro Information System</title>
+<meta name="description" content="Nanoroutes builds the Neuro Information System (NIS): a unified pipeline that turns neurological data into early, explainable diagnosis — where neuroscience, artificial intelligence and semiconductors converge.">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://nanoroutes.in/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nanoroutes — Goodbye Guesswork, Hello Nanotech">
+<meta property="og:description" content="The Neuro Information System: early, explainable neurological diagnosis at the intersection of neuroscience, AI and semiconductors.">
+<meta property="og:url" content="https://nanoroutes.in/">
+<meta property="og:site_name" content="Nanoroutes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nanoroutes — Goodbye Guesswork, Hello Nanotech">
+<meta name="twitter:description" content="The Neuro Information System: early, explainable neurological diagnosis.">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<noscript><style>.preloader{display:none!important}body.is-loading{overflow:auto!important}.reveal{opacity:1!important;transform:none!important}.lines .line-inner{transform:none!important}.hero-title .strike::after{transform:scaleX(1)!important}</style></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nanoroutes",
+  "url": "https://nanoroutes.in/",
+  "description": "Nanoroutes develops the Neuro Information System (NIS), an AI-driven pipeline for early, explainable neurological diagnosis.",
+  "email": "hello@nanoroutes.in",
+  "knowsAbout": ["Neuroinformatics", "Neuroimaging", "Signal Processing", "Brain-Computer Interface", "Neuroscience", "Artificial Intelligence", "Semiconductors"]
+}
+</script>
+</head>
+<body class="is-loading">
+
+<canvas class="neural-field" id="neuralField" aria-hidden="true"></canvas>
+<svg class="grain" aria-hidden="true" focusable="false"><filter id="grainF" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#grainF)"/></svg>
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-inner">
+    <svg class="preloader-mark" viewBox="0 0 120 120" aria-hidden="true">
+      <g class="pm-lines"><path pathLength="1" d="M28 56 56 28M28 64 56 92M64 28 92 56M64 92 92 64"/></g>
+      <circle class="pm-dot" cx="22" cy="60" r="6"/><circle class="pm-dot" cx="60" cy="22" r="6"/>
+      <circle class="pm-dot" cx="60" cy="98" r="6"/><circle class="pm-dot" cx="98" cy="60" r="6"/>
+      <circle class="pm-core" cx="60" cy="60" r="9"/>
+    </svg>
+    <div class="preloader-word"><span>Nanoroutes</span></div>
+    <div class="preloader-bar"><i id="preloadBar"></i></div>
+    <div class="preloader-count mono"><span id="preloadNum">00</span><span>—</span><span>Neuro Information System</span></div>
+  </div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"></span></div>
+
+<a class="skip" href="#home">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <a class="brand" href="#home" aria-label="Nanoroutes home">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><circle cx="6" cy="16" r="2.4"/><circle cx="16" cy="6" r="2.4"/><circle cx="16" cy="26" r="2.4"/><circle cx="26" cy="16" r="2.4"/><circle cx="16" cy="16" r="2"/><path d="M7.6 14.6 14.5 7.6M7.6 17.4 14.5 24.4M17.5 7.6 24.4 14.6M17.5 24.4 24.4 17.4"/></svg>
+    </span>
+    <span class="brand-word">Nanoroutes</span>
+  </a>
+  <div class="header-chapter mono" id="headerChapter" aria-live="polite"><span class="hc-num">00</span><span class="hc-name">Index</span></div>
+  <div class="header-right">
+    <a class="header-cta mono" href="#contact">Start a conversation</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">
+      <span class="menu-btn-label">Menu</span>
+      <span class="menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+  <span class="scroll-progress" id="scrollProgress" aria-hidden="true"></span>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
+  <div class="menu-art" aria-hidden="true">
+    <svg class="menu-art-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <g fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <g opacity="0.8">
+          <path d="M780 80 900 120M780 80 850 180M900 120 1020 70M900 120 970 200M1020 70 1140 110M1020 70 1090 170M1140 110 1180 250M850 180 970 200M850 180 820 280M970 200 1090 170M970 200 940 300M1090 170 1180 250M1090 170 1060 270M820 280 940 300M820 280 900 380M940 300 1060 270M940 300 1020 400M1060 270 1180 250M1060 270 1140 370M900 380 1020 400M900 380 870 480M1020 400 1140 370M1020 400 990 500M1140 370 1110 470M870 480 990 500M870 480 940 580M990 500 1110 470M990 500 1060 580M1110 470 1080 570M940 580 1060 580M940 580 1010 680M1060 580 1080 570M1060 580 1130 660M1010 680 1130 660"/>
+          <circle cx="780" cy="80" r="5"/><circle cx="900" cy="120" r="5"/><circle cx="1020" cy="70" r="5"/><circle cx="1140" cy="110" r="5"/><circle cx="850" cy="180" r="5"/><circle cx="970" cy="200" r="5"/><circle cx="1090" cy="170" r="5"/><circle cx="1180" cy="250" r="5"/><circle cx="820" cy="280" r="5"/><circle cx="940" cy="300" r="5"/><circle cx="1060" cy="270" r="5"/><circle cx="900" cy="380" r="5"/><circle cx="1020" cy="400" r="5"/><circle cx="1140" cy="370" r="5"/><circle cx="870" cy="480" r="5"/><circle cx="990" cy="500" r="5"/><circle cx="1110" cy="470" r="5"/><circle cx="940" cy="580" r="5"/><circle cx="1060" cy="580" r="5"/><circle cx="1010" cy="680" r="5"/><circle cx="1130" cy="660" r="5"/>
+        </g>
+        <g opacity="0.9">
+          <circle cx="450" cy="420" r="80"/>
+          <circle cx="450" cy="420" r="30"/>
+          <path d="M450 340c-45-12-80-48-92-95M450 340c34-34 46-80 34-128M450 340c58 0 104 24 126 58M450 340c-12 46 12 92 46 114M450 500c-34 24-58 60-64 104M450 500c34 24 58 60 64 104M450 500c-46 12-80 48-92 95M370 420c-46 0-80-24-104-58M530 420c46 0 80-24 104-58"/>
+          <circle cx="348" cy="315" r="7"/><circle cx="496" cy="292" r="7"/><circle cx="588" cy="472" r="7"/><circle cx="526" cy="604" r="7"/><circle cx="374" cy="604" r="7"/><circle cx="336" cy="472" r="7"/><circle cx="336" cy="362" r="7"/><circle cx="564" cy="362" r="7"/>
+        </g>
+        <g opacity="0.85">
+          <circle cx="180" cy="240" r="48"/>
+          <circle cx="180" cy="240" r="18"/>
+          <path d="M180 192c-28-8-50-30-58-60M180 192c22-22 30-50 22-80M180 192c36 0 64 16 78 38M180 192c-8 30 8 58 30 72M180 288c-22 16-38 40-42 68M180 288c22 16 38 40 42 68M180 288c-30 8-50 30-58 60M132 240c-30 0-50-16-64-38M228 240c30 0 50-16 64-38"/>
+          <circle cx="112" cy="172" r="5"/><circle cx="212" cy="152" r="5"/><circle cx="270" cy="272" r="5"/><circle cx="232" cy="352" r="5"/><circle cx="138" cy="352" r="5"/><circle cx="108" cy="272" r="5"/>
+        </g>
+        <g opacity="0.85">
+          <rect x="90" y="470" width="150" height="150" rx="6"/>
+          <rect x="135" y="515" width="60" height="60" rx="3"/>
+          <path d="M90 505H50M90 545H50M90 585H50M240 505h40M240 545h40M240 585h40M125 470V430M165 470V430M205 470V430M125 620v40M165 620v40M205 620v40"/>
+        </g>
+        <g opacity="0.7">
+          <path d="M40 720h130l45-45h110l65 65h150M40 760h110l55-55h130M420 720l65-85h90l45 45M720 760l85-65h110l55 55M1020 720l65-105h90"/>
+          <circle cx="40" cy="720" r="4"/><circle cx="215" cy="675" r="4"/><circle cx="370" cy="720" r="4"/><circle cx="560" cy="760" r="4"/><circle cx="720" cy="760" r="4"/><circle cx="905" cy="695" r="4"/><circle cx="1075" cy="720" r="4"/><circle cx="1185" cy="615" r="4"/>
+        </g>
+        <g opacity="0.75">
+          <path d="M560 90h32l10-32 12 64 10-42 8 12h44M560 132h26l8-22 10 44 8-32 6 12h38M600 176h22l6-16 8 32 6-22 4 10h30"/>
+          <path d="M60 90h26l8-24 10 48 8-34 6 12h32M60 128h22l6-18 8 36 6-24 4 10h26"/>
+          <path d="M640 470h24l7-20 9 40 7-28 5 10h28M640 508h20l6-15 7 30 5-20 4 8h24"/>
+        </g>
+        <g opacity="0.6">
+          <path d="M620 250l26 46h-52zM664 316l22 38h-44zM576 316l22 38h-44z"/>
+          <path d="M1060 640l24 40h-48zM1106 706l20 34h-40zM1014 706l20 34h-40z"/>
+          <path d="M360 640l20 34h-40zM400 700l16 28h-32z"/>
+        </g>
+        <g opacity="0.7">
+          <path d="M520 420h22M531 409v22M700 300h18M709 291v18M980 480h20M990 470v20M180 420h18M189 411v18M1120 300h16M1128 292v16"/>
+          <circle cx="560" cy="340" r="3"/><circle cx="760" cy="380" r="3"/><circle cx="940" cy="560" r="3"/><circle cx="140" cy="360" r="3"/><circle cx="1140" cy="420" r="3"/><circle cx="480" cy="560" r="3"/><circle cx="880" cy="180" r="3"/>
+          <circle cx="620" cy="560" r="10"/><circle cx="1000" cy="340" r="10"/><circle cx="300" cy="120" r="10"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="menu-inner">
+    <div class="menu-top">
+      <span class="mono">Navigation</span>
+      <button class="menu-close" id="menuClose" aria-label="Close menu"><span class="mono">Close</span><span class="menu-close-icon" aria-hidden="true"></span></button>
+    </div>
+    <nav class="menu-nav">
+      <a href="#home" class="menu-box">Home</a>
+      <a href="#vision" class="menu-box">Vision</a>
+      <a href="#nis" class="menu-box">Neuro Information System</a>
+      <a href="#collaboration" class="menu-box">Research Collaboration</a>
+      <a href="#internship" class="menu-box">Internship</a>
+      <a href="#investors" class="menu-box">Investors &amp; Partnerships</a>
+      <a href="#contact" class="menu-box">Contact</a>
+    </nav>
+    <div class="menu-foot">
+      <span class="mono">hello@nanoroutes.in</span>
+      <span class="mono">Neuroscience × AI × Semiconductors</span>
+    </div>
+  </div>
+</div>
+
+<main id="home">
+
+  <section class="hero" data-chapter="00" data-chapter-name="Index">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="wrap hero-wrap">
+      <p class="eyebrow reveal"><span class="dot"></span> Neuro Information System</p>
+      <h1 class="hero-title lines">
+        <span class="line"><span class="line-inner">Goodbye <em class="strike"><span>Guesswork</span></em>,</span></span>
+        <span class="line"><span class="line-inner">Hello <em class="serif">Nanotech.</em></span></span>
+      </h1>
+      <div class="hero-cols">
+        <p class="hero-lede reveal" data-delay="2">Nanoroutes builds the Neuro Information System — a single pipeline that turns raw neurological data into early, explainable diagnosis, where neuroscience, artificial intelligence and semiconductors converge.</p>
+        <div class="hero-actions reveal" data-delay="3">
+          <a class="btn btn-solid mag" href="#nis" data-cursor="Explore"><span>Explore the NIS</span><span class="arrow" aria-hidden="true"></span></a>
+          <a class="btn btn-line mag" href="#collaboration" data-cursor="Collaborate">Collaborate with us</a>
+        </div>
+      </div>
+      <div class="hero-meta reveal" data-delay="4">
+        <span class="mono">Est. 2026</span>
+        <span class="mono">Neuroscience × AI × Semiconductors</span>
+        <span class="mono">IISc-grade research foundation</span>
+      </div>
+    </div>
+
+    <div class="hero-net-wrap">
+      <svg class="hero-net net" viewBox="0 0 1200 460" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <g class="net-lines">
+          <line pathLength="1" x1="120" y1="140" x2="200" y2="300"/>
+          <line pathLength="1" x1="120" y1="140" x2="320" y2="200"/>
+          <line pathLength="1" x1="200" y1="300" x2="320" y2="200"/>
+          <line pathLength="1" x1="200" y1="300" x2="150" y2="470"/>
+          <line pathLength="1" x1="200" y1="300" x2="360" y2="400"/>
+          <line pathLength="1" x1="150" y1="470" x2="360" y2="400"/>
+          <line pathLength="1" x1="150" y1="470" x2="300" y2="520"/>
+          <line pathLength="1" x1="360" y1="400" x2="300" y2="520"/>
+          <line pathLength="1" x1="360" y1="400" x2="500" y2="470"/>
+          <line pathLength="1" x1="320" y1="200" x2="470" y2="120"/>
+          <line pathLength="1" x1="320" y1="200" x2="520" y2="300"/>
+          <line pathLength="1" x1="470" y1="120" x2="660" y2="120"/>
+          <line pathLength="1" x1="470" y1="120" x2="520" y2="300"/>
+          <line pathLength="1" x1="520" y1="300" x2="500" y2="470"/>
+          <line pathLength="1" x1="520" y1="300" x2="640" y2="200"/>
+          <line pathLength="1" x1="520" y1="300" x2="680" y2="380"/>
+          <line pathLength="1" x1="640" y1="200" x2="660" y2="120"/>
+          <line pathLength="1" x1="640" y1="200" x2="840" y2="180"/>
+          <line pathLength="1" x1="640" y1="200" x2="680" y2="380"/>
+          <line pathLength="1" x1="680" y1="380" x2="500" y2="470"/>
+          <line pathLength="1" x1="680" y1="380" x2="800" y2="440"/>
+          <line pathLength="1" x1="680" y1="380" x2="760" y2="520"/>
+          <line pathLength="1" x1="800" y1="440" x2="980" y2="470"/>
+          <line pathLength="1" x1="840" y1="180" x2="1000" y2="120"/>
+          <line pathLength="1" x1="1000" y1="120" x2="1080" y2="300"/>
+          <line pathLength="1" x1="1080" y1="300" x2="1120" y2="470"/>
+          <line pathLength="1" x1="980" y1="470" x2="1120" y2="470"/>
+          <line pathLength="1" x1="760" y1="520" x2="800" y2="440"/>
+          <line pathLength="1" x1="840" y1="180" x2="906" y2="300"/>
+        </g>
+        <g class="net-routes">
+          <path id="routeA" d="M120 140 L320 200 L520 300 L640 200 L840 180 L1000 120"/>
+          <path id="routeB" d="M150 470 L360 400 L500 470 L680 380 L800 440 L980 470"/>
+          <path id="routeC" d="M200 300 L320 200 L470 120 L660 120"/>
+        </g>
+        <g class="net-dots">
+          <circle cx="120" cy="140" r="3.5"/><circle cx="200" cy="300" r="3.5"/><circle cx="150" cy="470" r="3.5"/>
+          <circle cx="320" cy="200" r="3.5"/><circle cx="360" cy="400" r="3.5"/><circle cx="300" cy="520" r="3.5"/>
+          <circle cx="470" cy="120" r="3.5"/><circle cx="520" cy="300" r="3.5"/><circle cx="500" cy="470" r="3.5"/>
+          <circle cx="640" cy="200" r="3.5"/><circle cx="680" cy="380" r="3.5"/><circle cx="660" cy="120" r="3.5"/>
+          <circle cx="800" cy="440" r="3.5"/><circle cx="840" cy="180" r="3.5"/><circle cx="1000" cy="120" r="3.5"/>
+          <circle cx="1080" cy="300" r="3.5"/><circle cx="1120" cy="470" r="3.5"/><circle cx="980" cy="470" r="3.5"/>
+          <circle cx="760" cy="520" r="3.5"/>
+        </g>
+        <g class="neuron">
+          <path pathLength="1" d="M882 300c-30 4-58 0-84-14M882 300c-26-14-44-36-52-62M882 300c-6 26 0 52 16 74M882 300c-34-2-64 14-84 40"/>
+          <path pathLength="1" d="M798 286c-16-14-30-32-36-54M762 232c-10-6-20-16-26-28M762 232c-14 2-28 0-40-6"/>
+          <path pathLength="1" d="M830 238c-6-22-6-46 2-68M832 170c-8-8-14-20-16-32M832 170c10-8 18-20 22-32"/>
+          <path pathLength="1" d="M898 374c8 20 24 36 44 44M942 418c6 12 16 22 28 28M942 418c2 14 8 26 18 36"/>
+          <path pathLength="1" d="M798 340c-24 10-44 28-56 52M742 392c-14 4-26 12-36 22M742 392c-4 14-12 26-22 36"/>
+          <path pathLength="1" d="M834 292c-40 0-78 0-116 0"/>
+          <circle pathLength="1" cx="882" cy="300" r="26"/><circle pathLength="1" cx="882" cy="300" r="9"/>
+          <circle cx="716" cy="292" r="5"/><circle cx="762" cy="176" r="5"/><circle cx="854" cy="138" r="5"/>
+          <circle cx="970" cy="446" r="5"/><circle cx="706" cy="414" r="5"/><circle cx="702" cy="292" r="5"/>
+          <circle cx="718" cy="428" r="4"/><circle cx="844" cy="452" r="4"/>
+        </g>
+        <g class="signals" id="signals">
+          <circle class="signal" r="4.5"><animateMotion dur="7s" repeatCount="indefinite"><mpath href="#routeA"/></animateMotion></circle>
+          <circle class="signal" r="4.5"><animateMotion dur="9s" begin="1.4s" repeatCount="indefinite"><mpath href="#routeB"/></animateMotion></circle>
+          <circle class="signal" r="4.5"><animateMotion dur="6s" begin="2.6s" repeatCount="indefinite"><mpath href="#routeC"/></animateMotion></circle>
+        </g>
+      </svg>
+    </div>
+
+    <div class="scroll-cue reveal" data-delay="5"><span class="mono">Scroll</span><span class="scroll-cue-line" aria-hidden="true"></span></div>
+  </section>
+
+  <div class="statement" aria-hidden="true">
+    <div class="statement-track">
+      <span>Goodbye Guesswork, Hello Nanotech</span><span class="statement-sep">✳</span>
+      <span>Neuroscience</span><span class="statement-sep">✳</span>
+      <span>Artificial Intelligence</span><span class="statement-sep">✳</span>
+      <span>Semiconductors</span><span class="statement-sep">✳</span>
+      <span>Goodbye Guesswork, Hello Nanotech</span><span class="statement-sep">✳</span>
+      <span>Neuroscience</span><span class="statement-sep">✳</span>
+      <span>Artificial Intelligence</span><span class="statement-sep">✳</span>
+      <span>Semiconductors</span><span class="statement-sep">✳</span>
+    </div>
+  </div>
+
+  <section class="section problem" id="problem" data-chapter="01" data-chapter-name="The problem">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal"><span class="mono">01</span> The problem</p>
+        <h2 class="sec-title lines"><span class="line"><span class="line-inner">Neurological diagnosis</span></span><span class="line"><span class="line-inner">still runs on guesswork.</span></span></h2>
+      </div>
+      <div class="problem-cols">
+        <p class="lede reveal" data-delay="2">Millions of neuropathic and neurodegenerative cases are caught late, read subjectively and recorded inconsistently. The signal that predicts disease years earlier is buried in scans, waveforms and notes that no clinician can hold in mind at once.</p>
+        <p class="body reveal" data-delay="3">Nanoroutes exists to close that gap — to route the noise of neurology into a clear, repeatable and explainable signal. Not a black box that guesses. A system that shows its reasoning.</p>
+      </div>
+      <div class="flow reveal" data-delay="3">
+        <div class="flow-step">
+          <span class="flow-num mono">01</span>
+          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 34c6 0 8-16 14-16s8 22 14 22"/><path d="M8 24h4M36 24h4"/></svg>
+          <h3>Raw signal</h3><p>Imaging, electrophysiology and clinical notes arrive as separate, noisy streams.</p>
+        </div>
+        <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 40 12"><path d="M0 6h34M28 1l7 5-7 5"/></svg></span>
+        <div class="flow-step">
+          <span class="flow-num mono">02</span>
+          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="12" r="4"/><circle cx="12" cy="34" r="4"/><circle cx="36" cy="34" r="4"/><circle cx="24" cy="32" r="3"/><path d="M24 16v13M21 14l-7 17M27 14l7 17M15 34h6M33 34h-6"/></svg>
+          <h3>Structured data</h3><p>Signals are cleaned, aligned and encoded into one consistent representation.</p>
+        </div>
+        <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 40 12"><path d="M0 6h34M28 1l7 5-7 5"/></svg></span>
+        <div class="flow-step">
+          <span class="flow-num mono">03</span>
+          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="14" r="3.5"/><circle cx="16" cy="24" r="3.5"/><circle cx="16" cy="34" r="3.5"/><circle cx="33" cy="19" r="3.5"/><circle cx="33" cy="29" r="3.5"/><path d="M19 14l11 5M19 24l11-5M19 24l11 5M19 34l11-5"/></svg>
+          <h3>AI interpretation</h3><p>Models learn patterns across modalities that humans cannot hold at once.</p>
+        </div>
+        <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 40 12"><path d="M0 6h34M28 1l7 5-7 5"/></svg></span>
+        <div class="flow-step">
+          <span class="flow-num mono">04</span>
+          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6v28"/><path d="M14 16l10-10 10 10"/><path d="M10 40h28"/></svg>
+          <h3>Clear decision</h3><p>An explainable read a clinician can trust, act on and defend.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section nis" id="nis" data-chapter="02" data-chapter-name="Neuro Information System">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <p class="eyebrow reveal"><span class="mono">02</span> The system</p>
+          <h2 class="sec-title lines"><span class="line"><span class="line-inner">The Neuro</span></span><span class="line"><span class="line-inner">Information System</span></span></h2>
+        </div>
+        <p class="lede reveal" data-delay="2">NIS is the core of Nanoroutes: one pipeline from capture to decision. It is built to be multimodal, explainable and deployable — from a research lab to a clinic.</p>
+      </div>
+
+      <div class="nis-pipe" id="nisPipe">
+        <div class="nis-pipe-visual">
+          <div class="nis-pipe-sticky">
+            <svg class="nis-diagram" viewBox="0 0 460 460" aria-hidden="true">
+              <g class="nd-grid">
+                <path d="M60 60h340M60 145h340M60 230h340M60 315h340M60 400h340"/>
+                <path d="M60 60v340M145 60v340M230 60v340M315 60v340M400 60v340"/>
+              </g>
+              <g class="nd-stage" data-stage="0">
+                <path d="M110 190c20 0 26-46 44-46s26 92 44 92 26-46 44-46"/>
+                <circle cx="110" cy="190" r="4"/><circle cx="242" cy="190" r="4"/>
+              </g>
+              <g class="nd-stage" data-stage="1">
+                <circle cx="150" cy="150" r="7"/><circle cx="230" cy="120" r="7"/><circle cx="310" cy="150" r="7"/>
+                <circle cx="190" cy="250" r="7"/><circle cx="270" cy="250" r="7"/>
+                <path d="M150 150 230 120M150 150 190 250M230 120 310 150M230 120 270 250M310 150 270 250M190 250 270 250"/>
+              </g>
+              <g class="nd-stage" data-stage="2">
+                <circle cx="230" cy="185" r="70"/><circle cx="230" cy="185" r="46"/><circle cx="230" cy="185" r="20"/>
+                <path d="M230 185 300 185"/>
+              </g>
+              <g class="nd-stage" data-stage="3">
+                <path d="M150 260h160"/><path d="M230 120v140"/><path d="M190 170l40-40 40 40"/>
+              </g>
+            </svg>
+            <span class="mono nis-pipe-label">NIS · <em id="nisPipeLabel">Capture</em></span>
+          </div>
+        </div>
+        <div class="nis-pipe-steps">
+          <article class="nis-step" data-stage="0">
+            <span class="mono nis-idx">01 / Capture</span>
+            <h3>Capture</h3>
+            <p>Imaging, electrophysiology and clinical variables gathered into a single, governed record — the raw material of every decision.</p>
+          </article>
+          <article class="nis-step" data-stage="1">
+            <span class="mono nis-idx">02 / Interpret</span>
+            <h3>Interpret</h3>
+            <p>Models trained across neurological cohorts surface early, subtle and non-obvious markers that a single reader would miss.</p>
+          </article>
+          <article class="nis-step" data-stage="2">
+            <span class="mono nis-idx">03 / Explain</span>
+            <h3>Explain</h3>
+            <p>Every output is traceable to the evidence behind it. No unexplained verdicts, no black boxes a clinician has to take on faith.</p>
+          </article>
+          <article class="nis-step" data-stage="3">
+            <span class="mono nis-idx">04 / Act</span>
+            <h3>Act</h3>
+            <p>Outputs are formatted for real clinical workflows, so insight converts into earlier, better intervention.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pin" id="research" data-chapter="03" data-chapter-name="Research areas" data-pin>
+    <div class="pin-sticky">
+      <div class="pin-head wrap">
+        <p class="eyebrow"><span class="mono">03</span> Research areas</p>
+        <h2 class="sec-title lines"><span class="line"><span class="line-inner">Where the work lives.</span></span></h2>
+      </div>
+      <div class="pin-track" id="pinTrack">
+        <article class="rcard">
+          <span class="rcard-idx mono">01 / 04</span>
+          <svg class="ico ico-lg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="14" r="5"/><circle cx="14" cy="46" r="5"/><circle cx="50" cy="46" r="5"/><circle cx="32" cy="40" r="4"/><path d="M32 19v17M28 16L18 42M36 16l10 26M18 46h10M46 46h-10"/></svg>
+          <h3>Neuroinformatics</h3>
+          <p>Data architecture for the brain: storing, linking and reasoning over neurological information at scale.</p>
+          <span class="rcard-more mono">Explore <i class="arrow" aria-hidden="true"></i></span>
+        </article>
+        <article class="rcard">
+          <span class="rcard-idx mono">02 / 04</span>
+          <svg class="ico ico-lg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22"/><circle cx="32" cy="32" r="15"/><circle cx="32" cy="32" r="8"/><circle cx="32" cy="32" r="3"/><path d="M32 4v8M32 52v8M4 32h8M52 32h8"/></svg>
+          <h3>Neuroimaging</h3>
+          <p>Extracting measurable structure from MRI, fundus and functional imaging — cleanly and reproducibly.</p>
+          <span class="rcard-more mono">Explore <i class="arrow" aria-hidden="true"></i></span>
+        </article>
+        <article class="rcard">
+          <span class="rcard-idx mono">03 / 04</span>
+          <svg class="ico ico-lg" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 32h8l6-18 8 36 7-28 6 16 6-8h15"/><path d="M54 20v24"/></svg>
+          <h3>Signal Processing</h3>
+          <p>Turning noisy electrophysiological streams into stable features worth trusting.</p>
+          <span class="rcard-more mono">Explore <i class="arrow" aria-hidden="true"></i></span>
+        </article>
+        <article class="rcard">
+          <span class="rcard-idx mono">04 / 04</span>
+          <svg class="ico ico-lg" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 40a18 18 0 0 1 36 0"/><path d="M14 40h36"/><circle cx="22" cy="28" r="3"/><circle cx="32" cy="24" r="3"/><circle cx="42" cy="28" r="3"/><path d="M46 22l6-4M52 18l4-4M52 18l4 4"/></svg>
+          <h3>Brain–Computer Interface</h3>
+          <p>Bridging neural activity and machines for assistive, restorative and diagnostic use.</p>
+          <span class="rcard-more mono">Explore <i class="arrow" aria-hidden="true"></i></span>
+        </article>
+        <div class="pin-end">
+          <span class="mono">Four fields, one system.</span>
+          <a class="link-arrow mag" href="#contact">Work with us <i class="arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="pin-progress"><i id="pinBar"></i></div>
+    </div>
+  </section>
+
+  <section class="section vision" id="vision" data-chapter="04" data-chapter-name="The vision">
+    <div class="vision-grid" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="mono">04</span> The vision</p>
+      <h2 class="vision-title lines"><span class="line"><span class="line-inner">The world's first</span></span><span class="line"><span class="line-inner">Triad University.</span></span></h2>
+      <p class="vision-lede reveal" data-delay="2">Neuroscience × Artificial Intelligence × Semiconductors — one campus where the brain, the model and the machine are studied as a single system, and where research ships as care.</p>
+
+      <div class="triad reveal" data-delay="2" id="triad">
+        <svg class="triad-svg net" viewBox="0 0 520 480" aria-hidden="true">
+          <g class="triad-rings">
+            <circle pathLength="1" cx="190" cy="180" r="130"/>
+            <circle pathLength="1" cx="330" cy="180" r="130"/>
+            <circle pathLength="1" cx="260" cy="300" r="130"/>
+          </g>
+          <g class="triad-icons">
+            <g class="triad-icon" data-triad="neuro">
+              <path d="M150 150c-12-6-20-18-22-32M150 150c8-10 10-24 6-38M150 150c14 4 28 0 38-8M150 150c-4 14 0 30 8 40"/>
+              <circle cx="150" cy="150" r="12"/><circle cx="150" cy="150" r="4"/>
+            </g>
+            <g class="triad-icon" data-triad="ai">
+              <circle cx="330" cy="130" r="4"/><circle cx="330" cy="150" r="4"/><circle cx="330" cy="170" r="4"/>
+              <circle cx="356" cy="140" r="4"/><circle cx="356" cy="160" r="4"/><circle cx="380" cy="150" r="4"/>
+              <path d="M334 130l18 10M334 150l18-10M334 150l18 10M334 170l18-10M360 140l16 10M360 160l16-10"/>
+            </g>
+            <g class="triad-icon" data-triad="chip">
+              <rect x="238" y="278" width="44" height="44" rx="3"/><rect x="252" y="292" width="16" height="16" rx="1"/>
+              <path d="M238 292h-12M238 300h-12M238 308h-12M282 292h12M282 300h12M282 308h12M250 278v-12M260 278v-12M270 278v-12M250 322v12M260 322v12M270 322v12"/>
+            </g>
+          </g>
+        </svg>
+        <div class="triad-labels">
+          <button class="triad-label mono" data-for="neuro"><span>Neuroscience</span><i class="arrow" aria-hidden="true"></i></button>
+          <button class="triad-label mono" data-for="ai"><span>Artificial Intelligence</span><i class="arrow" aria-hidden="true"></i></button>
+          <button class="triad-label mono" data-for="chip"><span>Semiconductors</span><i class="arrow" aria-hidden="true"></i></button>
+        </div>
+      </div>
+
+      <div class="roadmap">
+        <div class="roadmap-line"><i id="roadmapBar"></i></div>
+        <ol class="roadmap-list">
+          <li class="roadmap-item reveal"><span class="mono roadmap-year">2026</span><h3>Foundation</h3><p>NIS research programme established and first multimodal neurological datasets assembled.</p></li>
+          <li class="roadmap-item reveal"><span class="mono roadmap-year">2027</span><h3>First cohort</h3><p>Internships and research collaborations open at scale across the four fields.</p></li>
+          <li class="roadmap-item reveal"><span class="mono roadmap-year">2028</span><h3>Clinical pilot</h3><p>NIS enters real diagnostic workflows in partner clinics and hospital labs.</p></li>
+          <li class="roadmap-item reveal"><span class="mono roadmap-year">2030</span><h3>Triad campus</h3><p>Neuroscience, artificial intelligence and semiconductors under one roof.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pathways" id="collaboration" data-chapter="05" data-chapter-name="Work with us">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal"><span class="mono">05</span> Work with us</p>
+        <h2 class="sec-title lines"><span class="line"><span class="line-inner">Three ways in.</span></span></h2>
+      </div>
+      <div class="accordion" id="accordion">
+        <article class="acc-item reveal" id="internship">
+          <button class="acc-head" aria-expanded="false">
+            <span class="acc-idx mono">01</span>
+            <span class="acc-title">Internship</span>
+            <span class="acc-tag mono">For students</span>
+            <span class="acc-toggle" aria-hidden="true"><i></i><i></i></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p>Work inside live research across neuroinformatics, neuroimaging, signal processing and brain–computer interface. Learn the pipeline by shipping into it.</p>
+            <div class="acc-actions"><a class="link-arrow" href="#contact">Apply as an intern <i class="arrow" aria-hidden="true"></i></a></div>
+          </div></div>
+        </article>
+        <article class="acc-item reveal" id="collab-item">
+          <button class="acc-head" aria-expanded="false">
+            <span class="acc-idx mono">02</span>
+            <span class="acc-title">Research Collaboration</span>
+            <span class="acc-tag mono">For researchers</span>
+            <span class="acc-toggle" aria-hidden="true"><i></i><i></i></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p>Partner with universities, labs and clinicians on datasets, methods and validation — with clear authorship and shared infrastructure.</p>
+            <div class="acc-actions"><a class="link-arrow" href="#contact">Propose a collaboration <i class="arrow" aria-hidden="true"></i></a></div>
+          </div></div>
+        </article>
+        <article class="acc-item reveal" id="investors">
+          <button class="acc-head" aria-expanded="false">
+            <span class="acc-idx mono">03</span>
+            <span class="acc-title">Investors &amp; Strategic Partnerships</span>
+            <span class="acc-tag mono">For partners</span>
+            <span class="acc-toggle" aria-hidden="true"><i></i><i></i></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p>Back a category-defining platform at the intersection of neuroscience, AI and semiconductors — with a research moat and a clinical pathway.</p>
+            <div class="acc-actions"><a class="link-arrow" href="#contact">Request the brief <i class="arrow" aria-hidden="true"></i></a></div>
+          </div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact" data-chapter="06" data-chapter-name="Contact">
+    <div class="wrap contact-wrap">
+      <div class="contact-left">
+        <p class="eyebrow reveal"><span class="mono">06</span> Contact</p>
+        <h2 class="contact-title lines"><span class="line"><span class="line-inner">Let's talk.</span></span></h2>
+        <p class="lede reveal" data-delay="2">Students, researchers, universities and investors — tell us where you fit and we'll route you to the right conversation.</p>
+        <div class="contact-links reveal" data-delay="3">
+          <a class="contact-link" href="mailto:hello@nanoroutes.in"><span class="mono">Email</span> hello@nanoroutes.in</a>
+          <a class="contact-link" href="https://wa.me/919682119375"><span class="mono">WhatsApp</span> Message us directly</a>
+        </div>
+      </div>
+      <form class="contact-form reveal" data-delay="2" id="contactForm" novalidate>
+        <div class="field"><label for="name">Name <span class="req">(required)</span></label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required maxlength="80"></div>
+        <div class="field"><label for="email">Email <span class="req">(required)</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@institution.org" required maxlength="254"></div>
+        <div class="field"><label for="role">I am a</label>
+          <select id="role" name="role"><option>Student</option><option>Researcher / Lab</option><option>University</option><option>Investor</option><option>Partner</option><option>Other</option></select>
+        </div>
+        <div class="field"><label for="message">Message <span class="req">(required)</span></label><textarea id="message" name="message" rows="4" placeholder="Tell us what you'd like to build or explore." required maxlength="2000"></textarea></div>
+        <button class="btn btn-solid btn-full mag" type="submit"><span>Send message</span><span class="arrow" aria-hidden="true"></span></button>
+        <p class="form-note mono" id="formNote">Opens in your email client. Nothing is stored.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-marquee" aria-hidden="true"><div class="footer-marquee-track">
+    <span>Nanoroutes</span><span class="statement-sep">✳</span><span>Goodbye Guesswork</span><span class="statement-sep">✳</span><span>Hello Nanotech</span><span class="statement-sep">✳</span>
+    <span>Nanoroutes</span><span class="statement-sep">✳</span><span>Goodbye Guesswork</span><span class="statement-sep">✳</span><span>Hello Nanotech</span><span class="statement-sep">✳</span>
+  </div></div>
+  <div class="wrap footer-wrap">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="6" cy="16" r="2.4"/><circle cx="16" cy="6" r="2.4"/><circle cx="16" cy="26" r="2.4"/><circle cx="26" cy="16" r="2.4"/><circle cx="16" cy="16" r="2"/><path d="M7.6 14.6 14.5 7.6M7.6 17.4 14.5 24.4M17.5 7.6 24.4 14.6M17.5 24.4 24.4 17.4"/></svg></span>
+      <span class="footer-word">Nanoroutes</span>
+      <p class="footer-line">Goodbye guesswork, hello nanotech.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#home">Home</a><a href="#vision">Vision</a><a href="#nis">NIS</a><a href="#collaboration">Collaboration</a><a href="#internship">Internship</a><a href="#investors">Investors</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <span class="mono">Neuroscience × AI × Semiconductors</span>
+      <span class="mono">© 2026 Nanoroutes</span>
+    </div>
+  </div>
+</footer>
+
+<script>setTimeout(function(){document.body.classList.remove('is-loading');var p=document.getElementById('preloader');if(p){p.classList.add('done');p.style.display='none';}},4000);</script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
